@@ -15,3 +15,15 @@ jobs:
             with:
                 name: output
                 path: output.txt
+    read-output:
+        needs: main-check
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Download the artifact
+              uses: actions/download-artifact@v2
+              with:
+                  name: output
+            - name: Print the output
+              run: cat output.txt
