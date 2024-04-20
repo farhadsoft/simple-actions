@@ -1,0 +1,12 @@
+name: Simple Workflow
+on: [push]
+
+jobs:
+    main-check:
+        if: github.ref == 'refs/heads/main'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Run a one-line script
+              run: echo This job is running on ${{ runner.os }} and branch ${{ github.ref }}
