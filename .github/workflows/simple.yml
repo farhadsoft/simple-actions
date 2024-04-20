@@ -10,9 +10,8 @@ jobs:
               uses: actions/checkout@v2
             - name: Run a one-line script
               run: echo This job is running on ${{ runner.os }} and branch ${{ github.ref }} > output.txt
-            - name: Archive the output
-            uses: actions/upload-artifact@v2
-            with:
+            - uses: actions/upload-artifact@v2
+              with:
                 name: output
                 path: output.txt
     read-output:
